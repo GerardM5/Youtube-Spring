@@ -12,6 +12,10 @@ public class User {
     private String password;
     private List<Video> videoList = new ArrayList<>();
 
+    public User() {
+
+    }
+
     public User(String email, String name, String password) throws Exception {
         checkEmail(email);
         checkPassword(password);
@@ -21,12 +25,16 @@ public class User {
     }
 
     private void checkPassword(String password) throws Exception {
-        if(password.length()<MIN_CHARACTERS_PASSWORD) throw new Exception("Contraseña muy corta");
-        if(password.matches(".*\\d.*")) throw new Exception("Contraseña no tiene numero");
+        if (password.length() < MIN_CHARACTERS_PASSWORD) throw new Exception("Contraseña muy corta");
+        if (password.matches("[0-9]+")) throw new Exception("Contraseña no tiene numero");
     }
 
     private void checkEmail(String email) throws Exception {
-        if(!email.contains("@")) throw new Exception("Email incorrecto");
+        if (!email.contains("@")) throw new Exception("Email incorrecto");
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getEmail() {
@@ -57,13 +65,18 @@ public class User {
         return videoList;
     }
 
-    public void uploadVideo (Video video) {
+    public Video uploadVideo(Video video) {
 
         videoList.add(video);
-
+        return video;
     }
 
     public void setVideoList(List<Video> videoList) {
         this.videoList = videoList;
+    }
+
+    public void validateData() throws Exception {
+        checkEmail(email);
+        checkPassword(password);
     }
 }

@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.json:json:20211205'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
