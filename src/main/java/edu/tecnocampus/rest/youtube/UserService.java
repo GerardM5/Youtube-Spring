@@ -9,7 +9,7 @@ import java.util.List;
 public class UserService {
     List<User> userList = new ArrayList<>();
 
-    public User findUser(String userId) throws Exception {
+    private User findUser(String userId) throws Exception {
 
         for (User user : userList) {
             if (user.getId().equals(userId)) {
@@ -35,7 +35,7 @@ public class UserService {
         return findUser(userId).getVideoList();
     }
 
-    public Video getVideoOfUser(String videoId, String userId) throws Exception {
+    public Video getVideoOfUser(String userId, String videoId) throws Exception {
         return findVideo(videoId, findUser(userId));
     }
 
