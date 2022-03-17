@@ -71,6 +71,8 @@ public class Video {
         return rating;
     }
 
+
+
     public List<Rating> getRatingList() {
         return ratingList;
     }
